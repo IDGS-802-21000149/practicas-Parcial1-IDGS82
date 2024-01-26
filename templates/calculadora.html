@@ -1,0 +1,34 @@
+{%extends 'layout.html' %}
+
+{%block content %}
+<form action="/operaciones" method="POST">
+    <div class="row d-flex justify-content-center align-items-center" style="margin-top: 10px;"> 
+        <input type="radio" name="operacion" value="Suma">
+        <label>Suma</label>
+      
+        <input type="radio" name="operacion" value="Resta">
+        <label>Resta</label>
+      
+        <input type="radio" name="operacion" value="Multiplicacion">
+        <label>Multiplicación</label>
+
+        <input type="radio" name="operacion" value="Division">
+        <label>División</label>
+    </div>
+
+    <label>Numero 1:</label>
+    <input type="text" name="n1"/>
+    <label>Numero 2:</label>
+    <input type="text" name="n2"/>
+    <div>
+        <input class="btn btn-success " type="submit"/>
+
+    </div>
+</form>
+
+{% if resultado %}
+<div style="text-align: right; margin-top: 10px; position: relative; top: -20px;">
+    <h1>Resultado: {{ resultado }}</h1>
+</div>
+{% endif %}
+{% endblock %}
