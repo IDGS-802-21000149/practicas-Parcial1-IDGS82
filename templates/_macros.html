@@ -1,0 +1,26 @@
+{% macro select_form_resistencia(name, label, form) %}
+    <div class="col-md-4">
+        <h4 class="text-center">{{ label }}</h4>
+        <div class="col-mb-3">
+            <div class="form-group d-flex align-items-center">
+                <label for="{{ name }}" class="col-3">{{ label }}</label>
+                {{ form(class="form-control") }}
+            </div>
+        </div>
+    </div>
+{% endmacro %}
+
+
+{% macro radio_form_resistencia(name, label, field) %}
+    <div class="form-group">
+        <label>{{ label }}</label>
+        {% for option_value, option_label in field.choices %}
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="{{ field.name }}" id="{{ field.id }}_{{ option_value }}" value="{{ option_value }}">
+                <label class="form-check-label" for="{{ field.id }}_{{ option_value }}">{{ option_label }}</label>
+            </div>
+        {% endfor %}
+    </div>
+{% endmacro %}
+
+

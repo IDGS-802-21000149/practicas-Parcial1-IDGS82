@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+{% import "_macros.html" as macros %}
+
+<div class="container mt-6">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form action="" method="post">
+                <div class="row mb-3">
+                    {{ macros.select_form_resistencia("color_1", "Color 1", form_resistencia.color_1) }}
+                    {{ macros.select_form_resistencia("color_2", "Color 2", form_resistencia.color_2) }}
+                    {{ macros.select_form_resistencia("color_3", "Color 3", form_resistencia.color_3) }}                                   
+                </div>                
+                {{ macros.radio_form_resistencia("tolerancia", "Tolerancia", form_resistencia.tolerancia) }}
+                <div class="row justify-content-center mt-4">
+                    <div class="col-md-5">
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Registrar</button>
+                            <button type="button" class="btn btn-secondary">Salir</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Color 1</th>
+                <th scope="col">Color 2</th>
+                <th scope="col">Color 3</th>
+                <th scope="col">Tolerancia</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Valor Máximo</th>
+                <th scope="col">Valor Mínimo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if resultados %}
+                <tr>
+                    <td>{{ resultados.color_1 }}</td>
+                    <td>{{ resultados.color_2 }}</td>
+                    <td>{{ resultados.color_3 }}</td>
+                    <td>{{ resultados.tolerancia }}</td>
+                    <td>{{ resultados.valor_resistencia}}</td>
+                    <td>{{ resultados.valor_maximo }}</td>
+                    <td>{{ resultados.valor_minimo }}</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>    
+</div>
+
+{% endblock %}
